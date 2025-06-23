@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto js</title>
+    <title>Colegio</title>
+    <script src="./js/main.js" defer></script>
     <link rel="stylesheet" href="style/style.css">
-    <script src="js/main.js" defer ></script>
 </head>
 <body>
-    <header>
-        <h1> "Este es el curso de javascript" </h1>
-        <h2> Comenzamos </h2>
-    </header>
+    <h1>Distribucion del Grupo Scout</h1>
+    <p>Aqui dividiremos los integrantes por edad y cada uno sera derivado al grupo que corresponda, los participantes deben ser mayor de 5 años.</p>
+    <p>De 5 a 6 años perteneceran a la Rama Castores.</p>
+    <p>De 7 a 11 años perteneceran a la Rama Manada.</p>
+    <p>De 12 a 14 años perteneceran a la Rama Unidad.</p>
+    <p>De 15 a 17 años perteneceran a la Rama Caminantes.</p>
+    <p>De 18 a 21 años perteneceran a la Rama Rover.</p>
+    <p>Mayodes de 21 años seran Educadores.</p>
+    <form id="formulario">
+        <label for="nomb">Nombre y Apellido:</label>
+        <input type="text" id="nombre">
+        <label for="edad">Edad</label>
+        <input type="number" id="edades">
+        <button type="submit" id="envio" onclick="miEnvio()">Enviar</button>
+    </form>
 </body>
 </html>
