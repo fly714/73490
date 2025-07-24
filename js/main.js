@@ -1,26 +1,27 @@
+let datos = []
+const formularioAlumno = document.getElementById("alumnoForm");
+formularioAlumno.addEventListener("submit", (event)=> {
+        event.preventDefault();// 
+              
+        const nombre = document.getElementById("alumnoNombre").value;
+        const curso = document.getElementById("alumnoCurso").value;
+        document.getElementById("alumnoNombre").value = '';
+        document.getElementById("alumnoCurso").value = '';        
+        if (nombre && curso) {
+            const listaAlumnos = {nombre, curso};
+            datos.push({ listaAlumnos });
+            mostrarDatos();
+        } else {
+            alert("Por favor, completa todos los campos.");
+        }
+    });
 
-function miEnvio() {
-    let nomb = document.getElementById("nombre").value;
-    let edad = document.getElementById("edades").value;
-    let ed = edad
-
-    if (ed < 5) {
-    alert("Hola, " + nomb + ". Aun no tienes la edad necesaria para ingresar al Grupo Scout, debes ser mayor de 5 años.")
-    } else if (ed <= 6) {
-    alert("Hola, " + nomb + ". Perteneces a la Rama Castores.")
-    } else if (ed <= 11) {
-    alert("Hola, " + nomb + ". Perteneces a la Rama Manada.")
-    } else if (ed <= 14) {
-    alert("Hola, " + nomb + ". Perteneces a la Rama Unidad.")
-    } else if (ed <= 17) {
-    alert("Hola, " + nomb + ". Perteneces a la Rama Caminantes.")
-    } else if (ed <= 21) {
-    alert("Hola, " + nomb + ". Perteneces a la Rama Rover.")
-    } else {
-    alert("Hola, " + nomb + ". Perteneces a los Educadores.")
-    }
+function mostrarDatos() {
+    const lista = document.getElementById("lisAlumnos");
+    lista.innerHTML = ''; 
+    datos.forEach((alumno, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${alumno.listaAlumnos.nombre} - ${alumno.listaAlumnos.curso}`;
+        lista.appendChild(li);
+    });
 }
-
-
-
-

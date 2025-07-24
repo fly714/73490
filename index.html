@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Scout</title>
+    <title>Seguimiento docente</title>
     <script src="./js/main.js" defer></script>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <h1>Distribucion del Grupo Scout</h1>
-    <p>Aqui dividiremos los integrantes por edad y cada uno sera derivado al grupo que corresponda, los participantes deben ser mayor de 5 años.</p>
-    <p>De 5 a 6 años perteneceran a la Rama Castores.</p>
-    <p>De 7 a 11 años perteneceran a la Rama Manada.</p>
-    <p>De 12 a 14 años perteneceran a la Rama Unidad.</p>
-    <p>De 15 a 17 años perteneceran a la Rama Caminantes.</p>
-    <p>De 18 a 21 años perteneceran a la Rama Rover.</p>
-    <p>Mayodes de 21 años seran Educadores.</p>
-    <form id="formulario">
-        <label for="nomb">Nombre y Apellido:</label>
-        <input type="text" id="nombre">
-        <label for="edad">Edad</label>
-        <input type="number" id="edades">
-        <button type="submit" id="envio" onclick="miEnvio()">Enviar</button>
-    </form>
+    <header>
+        <h1 class="titulo">Carga de alumnos y notas</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Formulario de carga</h2>
+            <form id="alumnoForm">
+                <label for="nombreApellido">Nombre y Apellido del alumno:</label>
+                <input type="text" id="alumnoNombre" name="nombreAlumno" required>
+
+                <label for="curso">Curso del alumno:</label>
+                <input type="text" id="alumnoCurso" name="cursoAlumno" required>
+
+                <button type="submit">Agregar alumno</button>
+            </form>
+        </section>
+        <section>
+            <h2>Lista de alumnos</h2>
+            <ul id="lisAlumnos"></ul>
+        </section>
+        <section>
+            <h2>Notas de los alumnos</h2>
+            <form id="notaForm">
+                <label for="alumnoSeleccionado">Seleccionar alumno:</label>
+                <select id="alumnoSeleccionado" required></select>
+
+                <label for="nota">Nota:</label>
+                <input type="number" id="nota" name="nota" min="0" max="10" required>
+
+                <button type="submit">Agregar nota</button>
+            </form>
+        </section>        
+    </main>
 </body>
 </html>
