@@ -13,6 +13,7 @@ function obtenerAlumnos() {
     function guardarAlumnos(alumnos) {
       localStorage.setItem('alumnos', JSON.stringify(alumnos));
     }
+    
     btnAgregar.addEventListener('click', function() {
       const nombre = document.getElementById('nombre').value.trim();
       const curso = document.getElementById('curso').value.trim();
@@ -37,9 +38,18 @@ function obtenerAlumnos() {
     btnBuscar.addEventListener('click', function() {
       const nombreBuscar = document.getElementById('buscarNombre').value.trim().toLowerCase();
       const alumnos = obtenerAlumnos();
-      const alumno = alumnos.find(a => a.nombre.toLowerCase() === nombreBuscar);
+    
+      let alumno = null;
 
-      if (alumno) {
+      for (let i = 0; i < alumnos.length; i++) {
+        if (alumnos[i].nombre.toLowerCase() === nombreBuscar) {
+          alumno = alumnos[i];
+          break;
+        }
+      }
+      
+      document.getElementById('buscarNombre').value = '';       
+        if (alumno) {
         alumnoActual = alumno;
         audioCarga.play();
         document.getElementById('resultadoBusqueda').innerHTML = `
